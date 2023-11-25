@@ -1,31 +1,20 @@
+import { useState } from "react";
+import "./App.css";
 import { TwitterFollowCard } from "./TwitterFollowCard.jsx";
-export function App() {
-  const formatUserName = (userName) => `@${userName}`;
 
+export function App() {
+  const [name,setName] = useState("midudev");
+const [isFollowing,setIsFollowing]=useState(false)
+console.log(isFollowing);
   return (
     <section className="App">
-      <TwitterFollowCard
-        formatUserName={formatUserName}
-        isFollowing
-        userName="midudev"
-        name="Miguel ANgel Duran"
-      />
+      <TwitterFollowCard userName={name} initialIsFollowing={isFollowing}>
+        Miguel ANgel Duran
+      </TwitterFollowCard>
 
-      <TwitterFollowCard
-        formatUserName={formatUserName}
-        isFollowing={false}
-        userName="pheralb"
-        name="Pablo Hernadez"
-      />
-
-      <TwitterFollowCard
-        formatUserName={formatUserName}
-        isFollowing
-        userName="spyed"
-        name="spyed"
-      />
+      <button onClick={()=>{setIsFollowing(!isFollowing)}}>Cambio estado de App</button>
     </section>
 
-    //hora 1:20
+  
   );
 }
