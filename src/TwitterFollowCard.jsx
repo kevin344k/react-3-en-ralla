@@ -15,8 +15,7 @@ export function TwitterFollowCard({
 const handlerClick=()=> {
   setIsFollowing(!isFollowing)
 }
-console.log("[TwitterFollowCard] render with isFollow: ",userName);
-  console.log(isFollowing);
+
   const imageSource = `https://unavatar.io/${userName}`;
 
   const text = isFollowing ? "Siguiendo" : "Seguir";
@@ -40,7 +39,11 @@ console.log("[TwitterFollowCard] render with isFollow: ",userName);
         </div>
       </header>
       <aside>
-        <button className={buttonClassName} onClick={handlerClick}>{text}</button>
+        <button className={buttonClassName} onClick={handlerClick}>
+           <span className="tw-followCard-text">{text}</span> 
+        <span className="tw-followCard-stopFollow">Dejar de seguir</span>
+        </button>
+       
       </aside>
     </article>
   );
